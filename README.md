@@ -1,7 +1,8 @@
-Role Name
+Ansible Role: mc2xml
 =========
+[![Build Status][travis_badge]][travis_results]
 
-A brief description of the role goes here.
+Installs and configures [mc2xml][mc2xml].
 
 Requirements
 ------------
@@ -36,3 +37,7 @@ Author Information
 ------------------
 
 An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+
+[mc2xml]: http://mc2xml.hosterbox.net/
+[travis_badge]: https://travis-ci.org/cmprescott/ansible-role-mc2xml.svg?branch=master
+[travis_results]: https://travis-ci.org/cmprescott/ansible-role-mc2xml
