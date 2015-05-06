@@ -7,12 +7,15 @@ Installs and configures [mc2xml][mc2xml].
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+mc2xml's author has made it non-trivial to download the bin via script. The author also left a polite note in the homepage's html asking to not download the bin via botting/scripting. To follow the author's wishes, download the [mc2xml][mc2xml] bin to the ansible host before running this role.
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+```yaml
+mc2xml_bin_local: ~/Downloads/mc2xml      # path of downloaded bin on ansible host
+mc2xml_bin_remote: /usr/local/bin/mc2xml  # path of bin on remote
+```
 
 Dependencies
 ------------
