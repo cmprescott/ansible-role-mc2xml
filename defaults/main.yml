@@ -1,2 +1,7 @@
 ---
 # defaults file for ansible-role-mc2xml
+
+mc2xml_bin_local: ~/Downloads/mc2xml
+mc2xml_bin_remote: /usr/local/bin/mc2xml
+
+...
