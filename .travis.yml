@@ -7,6 +7,10 @@ before_install:
 #install:
 #  - pip install ansible==1.8.4
 script:
+# Create dummy file
+  - mkdir ~/Downloads
+  - touch ~/Downloads/mc2xml
+# Normal ansible | travis flow    
   - ansible --version
   - ansible-playbook -i tests/inventory tests/test.yml --syntax-check --list-tasks 
   - ansible-playbook -i tests/inventory tests/test.yml
