@@ -3,5 +3,6 @@
 
 mc2xml_bin_local: ~/Downloads/mc2xml
 mc2xml_bin_remote: /usr/local/bin/mc2xml
+mc2xml_path_output: /var/mc2xml
 
 ...

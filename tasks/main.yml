@@ -8,13 +8,18 @@
 
 
 - name: "Setup | descriptive error to download mc2xml bin to ansible host"
-  fail: msg= "you must download the mc2xml bin to the ansible host. Download available at http://mc2xml.hosterbox.net/" 
+  fail: msg="you must download the mc2xml bin to the ansible host. Download available at http://mc2xml.hosterbox.net/" 
   when:  not local_bin.stat.exists
 
 
 - name: "Setup | ensure ansible host's mc2xml bin copied to remote"
   sudo: yes
   copy: backup=no  dest={{ mc2xml_bin_remote }}  mode=0755  owner=root  src={{ mc2xml_bin_local }}
+
+
+- name: "Setup | ensure preferred mc2xml directory exists"
+  sudo: yes
+  file: mode=0755  owner={{ ansible_ssh_user }}  path={{ mc2xml_path_output }} state=directory
 
 
 ...

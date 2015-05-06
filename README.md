@@ -15,6 +15,7 @@ Role Variables
 ```yaml
 mc2xml_bin_local: ~/Downloads/mc2xml      # path of downloaded bin on ansible host
 mc2xml_bin_remote: /usr/local/bin/mc2xml  # path of bin on remote
+mc2xml_path_output: /var/mc2xml           # dir to store mc2xml output
 ```
 
 Dependencies
