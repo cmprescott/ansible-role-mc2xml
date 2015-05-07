@@ -9,7 +9,8 @@ before_install:
 script:
 # Create dummy file
   - mkdir ~/Downloads
-  - touch ~/Downloads/mc2xml
+  - echo touch mc2xml.dat >> ~/Downloads/mc2xml
+  - chmod +x ~/Downloads/mc2xml
 # Normal ansible | travis flow    
   - ansible --version
   - ansible-playbook -i tests/inventory tests/test.yml --syntax-check --list-tasks 
