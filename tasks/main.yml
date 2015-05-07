@@ -7,7 +7,7 @@
   register:  local_bin
 
 
-- name: "Setup | descriptive error to download mc2xml bin to ansible host"
+- name: "Setup | error to download mc2xml bin to ansible host"
   fail: msg="you must download the mc2xml bin to the ansible host. Download available at http://mc2xml.hosterbox.net/" 
   when:  not local_bin.stat.exists
 
@@ -20,6 +20,13 @@
 - name: "Setup | ensure preferred mc2xml directory exists"
   sudo: yes
   file: mode=0755  owner={{ ansible_ssh_user }}  path={{ mc2xml_path_output }} state=directory
+
+
+- name: "Config| ensure mc2xml configured for lineup"
+  shell: "echo {{ mc2xml_lineup_num }} | mc2xml {{ mc2xml_args_init }}"
+  args:
+    chdir: "{{ mc2xml_path_output }}"
+    creates: '{{ mc2xml_path_output }}/{{ mc2xml_file_dat | default("mc2xml.dat") }}'
 
 
 - name: "Config| ensure mc2xml daily cron job present"

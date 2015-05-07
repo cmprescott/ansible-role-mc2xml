@@ -4,7 +4,12 @@
 # ENV configuration
 mc2xml_bin_local: ~/Downloads/mc2xml
 mc2xml_bin_remote: /usr/local/bin/mc2xml
+mc2xml_lineup_num: 3 
 mc2xml_path_output: /var/mc2xml
+
+# MANDATORY configuration
+mc2xml_geo_country_code: "US"
+mc2xml_geo_postal_code: "90210"
 
 # OPTIONAL configuration (set to include)
 #mc2xml_channel_offset: "<#>"

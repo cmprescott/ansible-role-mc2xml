@@ -32,4 +32,10 @@ mc2xml_args_cron: >
   {{ mc2xml_args_params | regex_replace(' +', ' ') }}
   {{ mc2xml_args_config | regex_replace(' +', ' ') }}
 
+# Construct args for first 'initialization' run that creates mc2xml.dat
+mc2xml_args_init: >
+  -c {{ mc2xml_geo_country_code }}
+  -g {{ mc2xml_geo_postal_code }}
+  {{ mc2xml_args_cron }}
+
 ...

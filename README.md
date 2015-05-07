@@ -16,7 +16,12 @@ Role Variables
 # ENV configuration
 mc2xml_bin_local: ~/Downloads/mc2xml        # path of downloaded bin on ansible host
 mc2xml_bin_remote: /usr/local/bin/mc2xml    # path of bin on remote
+mc2xml_lineup_num: 3                        # local provider to select from choices get by running mc2xml
 mc2xml_path_output: /var/mc2xml             # dir to store mc2xml output
+
+# MANDATORY configuration
+mc2xml_geo_country_code: "US"               # country code to lookup providers
+mc2xml_geo_postal_code: "90210"             # zip/postal code to lookup providers
 
 # OPTIONAL configuration (set to include)
 mc2xml_channel_offset: "<#>"                # add <#> to all channel numbers
