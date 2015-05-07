@@ -13,9 +13,34 @@ Role Variables
 --------------
 
 ```yaml
-mc2xml_bin_local: ~/Downloads/mc2xml      # path of downloaded bin on ansible host
-mc2xml_bin_remote: /usr/local/bin/mc2xml  # path of bin on remote
-mc2xml_path_output: /var/mc2xml           # dir to store mc2xml output
+# ENV configuration
+mc2xml_bin_local: ~/Downloads/mc2xml        # path of downloaded bin on ansible host
+mc2xml_bin_remote: /usr/local/bin/mc2xml    # path of bin on remote
+mc2xml_path_output: /var/mc2xml             # dir to store mc2xml output
+
+# OPTIONAL configuration (set to include)
+mc2xml_channel_offset: "<#>"                # add <#> to all channel numbers
+mc2xml_duration: "<#>"                      # set listings duration (in hours)
+mc2xml_file_ren: "mc2xml.ren"               # set ren filename
+mc2xml_file_dat: "mc2xml.dat"               # set dat filename
+mc2xml_file_channel: "mc2xml.chl"           # set channel file
+mc2xml_file_xmltv: "xmltv.xml"              # set output file
+mc2xml_include_xmltv: "<filename>"          # include <xmltv file> in output
+mc2xml_rel_start: "<[+/-]#>"                # set listings relative start position (in hours )
+mc2xml_titantv_id: "<id>"                   # set 30 char id for titantv service
+mc2xml_sched_direct_creds: "<user>:<pass>"  # use schedules direct service
+mc2xml_wait: "<#>"                          # wait for <seconds> and exit
+
+# OPTIONAL params (override to Yes to include)
+mc2xml_channel_name: No                     # output channel "name" first (rather than "number name")
+mc2xml_force_re_dl: No                      # force re-download (use responsibly)
+mc2xml_include_live: No                     #                      include <live /> tag (not part of xmltv.dtd)
+mc2xml_mark_new: No                         # append " *" to new programs
+mc2xml_mark_live: No                        # append " *" to live programs
+mc2xml_mark_old: No                         # append " *" to not new programs
+mc2xml_titantv: No                          # use titantv service
+mc2xml_UTC: No                              # output date/time in UTC (default = localtime)
+mc2xml_UTF_8: No                            # output UTF-8 (default = "ISO-8859-1")
 ```
 
 Dependencies

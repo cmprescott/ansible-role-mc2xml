@@ -22,4 +22,12 @@
   file: mode=0755  owner={{ ansible_ssh_user }}  path={{ mc2xml_path_output }} state=directory
 
 
+- name: "Config| ensure mc2xml daily cron job present"
+  cron: 
+    name: mc2xml 
+    job: "cd {{ mc2xml_path_output }} && mc2xml {{ mc2xml_args_cron }}"
+    state: present
+    special_time: daily
+
+
 ...
