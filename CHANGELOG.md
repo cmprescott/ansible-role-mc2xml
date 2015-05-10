@@ -1,6 +1,8 @@
 # Change Log
 
-## [0.0.1][unreleased]
+## [Unreleased][unreleased]
+
+## [0.0.1] - 2015-05-10
 ### Added
 - **doc:** changelog
 - **doc:** initial readme
@@ -12,4 +14,5 @@
 - **task**: choose service provider on installation
 - **task**: create daily cron job to update listings
 
-[unreleased]: https://github.com/cmprescott/ansible-role-mc2xml/compare/d669fa19...HEAD
+[unreleased]: https://github.com/cmprescott/ansible-role-mc2xml/compare/0.0.1...HEAD
+[0.0.1]: https://github.com/cmprescott/ansible-role-mc2xml/compare/d669fa19...0.0.1
