@@ -2,9 +2,9 @@
 
 ## [0.0.1][unreleased]
 ### Added
-- **doc: ** changelog
-- **doc: ** initial readme
-- **doc: ** galaxy meta file
+- **doc:** changelog
+- **doc:** initial readme
+- **doc:** galaxy meta file
 - **misc:** ansible-galaxy generated Files
 - **misc:** Travis CI
 - **task**: install mc2xml bin by copying from ansible host to remote 
