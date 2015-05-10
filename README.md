@@ -51,16 +51,19 @@ mc2xml_UTF_8: No                            # output UTF-8 (default = "ISO-8859-
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+None
 
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
+```yaml
+- hosts: servers.media
+  roles:
+    - name: ensure mc2xml
+      role: cmprescott.mc2xml
+      mc2xml_lineup_num: 2
+      mc2xml_geo_postal_code: 10001
+```
 
 License
 -------
@@ -70,7 +73,7 @@ BSD
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+Prescott Chris
 
 [mc2xml]: http://mc2xml.hosterbox.net/
 [travis_badge]: https://travis-ci.org/cmprescott/ansible-role-mc2xml.svg?branch=master
