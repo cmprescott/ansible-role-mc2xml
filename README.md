@@ -39,7 +39,7 @@ mc2xml_wait: "<#>"                          # wait for <seconds> and exit
 # OPTIONAL params (override to Yes to include)
 mc2xml_channel_name: No                     # output channel "name" first (rather than "number name")
 mc2xml_force_re_dl: No                      # force re-download (use responsibly)
-mc2xml_include_live: No                     #                      include <live /> tag (not part of xmltv.dtd)
+mc2xml_include_live: No                     # include <live /> tag (not part of xmltv.dtd)
 mc2xml_mark_new: No                         # append " *" to new programs
 mc2xml_mark_live: No                        # append " *" to live programs
 mc2xml_mark_old: No                         # append " *" to not new programs
