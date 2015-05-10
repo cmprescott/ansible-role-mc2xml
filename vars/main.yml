@@ -1,2 +1,41 @@
 ---
 # vars file for ansible-role-mc2xml
+
+# Construct args with user config
+mc2xml_args_config: > 
+  {% if mc2xml_channel_offset is defined %}     -i {{ mc2xml_channel_offset }}      {% endif %}
+  {% if mc2xml_duration is defined %}           -d {{ mc2xml_duration }}            {% endif %}
+  {% if mc2xml_include_xmltv is defined %}      -I {{ mc2xml_include_xmltv }}       {% endif %}
+  {% if mc2xml_rel_start is defined %}          -s {{ mc2xml_rel_start }}           {% endif %}
+  {% if mc2xml_sched_direct_creds is defined %} -T {{ mc2xml_sched_direct_creds }}  {% endif %}
+  {% if mc2xml_titantv_id is defined %}         -y {{ mc2xml_titantv_id }}          {% endif %}
+  {% if mc2xml_wait is defined %}               -w {{ mc2xml_wait }}                {% endif %}
+  {% if mc2xml_file_channel is defined %}       -C {{ mc2xml_file_channel }}        {% endif %}
+  {% if mc2xml_file_dat is defined %}           -D {{ mc2xml_file_dat }}            {% endif %}
+  {% if mc2xml_file_ren is defined %}           -R {{ mc2xml_file_ren }}            {% endif %}
+  {% if mc2xml_file_xmltv is defined %}         -o {{ mc2xml_file_xmltv }}          {% endif %}
+
+# Construct args that are just single param
+mc2xml_args_params: > 
+  {% if mc2xml_channel_name %}  -F {% endif %}
+  {% if mc2xml_force_re_dl %}   -f {% endif %}
+  {% if mc2xml_include_live %}  -L {% endif %}
+  {% if mc2xml_mark_live %}     -A {% endif %}
+  {% if mc2xml_mark_new %}      -a {% endif %}
+  {% if mc2xml_mark_old %}      -b {% endif %}
+  {% if mc2xml_titantv %}       -t {% endif %}
+  {% if mc2xml_UTC %}           -u {% endif %}
+  {% if mc2xml_UTF_8 %}         -U {% endif %}
+
+# Construct args that will be re-run during cron job. Also strip out extra spaces.
+mc2xml_args_cron: >
+  {{ mc2xml_args_params | regex_replace(' +', ' ') }}
+  {{ mc2xml_args_config | regex_replace(' +', ' ') }}
+
+# Construct args for first 'initialization' run that creates mc2xml.dat
+mc2xml_args_init: >
+  -c {{ mc2xml_geo_country_code }}
+  -g {{ mc2xml_geo_postal_code }}
+  {{ mc2xml_args_cron }}
+
+...

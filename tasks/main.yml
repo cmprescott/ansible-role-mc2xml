@@ -1,2 +1,40 @@
 ---
 # tasks file for ansible-role-mc2xml
+
+
+- name: "Setup | check ansible host for mc2xml bin"
+  stat: path={{ mc2xml_bin_local }}
+  register:  local_bin
+
+
+- name: "Setup | error to download mc2xml bin to ansible host"
+  fail: msg="you must download the mc2xml bin to the ansible host. Download available at http://mc2xml.hosterbox.net/" 
+  when:  not local_bin.stat.exists
+
+
+- name: "Setup | ensure ansible host's mc2xml bin copied to remote"
+  sudo: yes
+  copy: backup=no  dest={{ mc2xml_bin_remote }}  mode=0755  owner=root  src={{ mc2xml_bin_local }}
+
+
+- name: "Setup | ensure preferred mc2xml directory exists"
+  sudo: yes
+  file: mode=0755  owner={{ ansible_ssh_user }}  path={{ mc2xml_path_output }} state=directory
+
+
+- name: "Config| ensure mc2xml configured for lineup"
+  shell: "echo {{ mc2xml_lineup_num }} | mc2xml {{ mc2xml_args_init }}"
+  args:
+    chdir: "{{ mc2xml_path_output }}"
+    creates: '{{ mc2xml_path_output }}/{{ mc2xml_file_dat | default("mc2xml.dat") }}'
+
+
+- name: "Config| ensure mc2xml daily cron job present"
+  cron: 
+    name: mc2xml 
+    job: "cd {{ mc2xml_path_output }} && mc2xml {{ mc2xml_args_cron }}"
+    state: present
+    special_time: daily
+
+
+...
