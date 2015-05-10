@@ -1,7 +1,38 @@
 ---
 # defaults file for ansible-role-mc2xml
 
+# ENV configuration
 mc2xml_bin_local: ~/Downloads/mc2xml
 mc2xml_bin_remote: /usr/local/bin/mc2xml
+mc2xml_lineup_num: 3 
+mc2xml_path_output: /var/mc2xml
+
+# MANDATORY configuration
+mc2xml_geo_country_code: "US"
+mc2xml_geo_postal_code: "90210"
+
+# OPTIONAL configuration (set to include)
+#mc2xml_channel_offset: "<#>"
+#mc2xml_duration: "<#>"
+#mc2xml_file_channel: "mc2xml.chl"
+#mc2xml_file_dat: "mc2xml.dat"
+#mc2xml_file_ren: "mc2xml.ren"
+#mc2xml_file_xmltv: "xmltv.xml"
+#mc2xml_include_xmltv: "<filename>"
+#mc2xml_rel_start: "<[+/-]#>"
+#mc2xml_titantv_id: "<id>" 
+#mc2xml_sched_direct_creds: "<user>:<pass>"
+#mc2xml_wait: "<#>"
+
+# OPTIONAL params
+mc2xml_channel_name: No
+mc2xml_force_re_dl: No
+mc2xml_include_live: No
+mc2xml_mark_new: No
+mc2xml_mark_live: No
+mc2xml_mark_old: No
+mc2xml_titantv: No
+mc2xml_UTC: No
+mc2xml_UTF_8: No
 
 ...
