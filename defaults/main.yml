@@ -11,11 +11,14 @@ mc2xml_path_output: /var/mc2xml
 mc2xml_geo_country_code: "US"
 mc2xml_geo_postal_code: "90210"
 
+# OPTIONAL defaults (feel free to override)
+mc2xml_file_channel: "mc2xml.chl"
+mc2xml_file_dat: "mc2xml.dat"
+
 # OPTIONAL configuration (set to include)
 #mc2xml_channel_offset: "<#>"
+#mc2xml_channels: []
 #mc2xml_duration: "<#>"
-#mc2xml_file_channel: "mc2xml.chl"
-#mc2xml_file_dat: "mc2xml.dat"
 #mc2xml_file_ren: "mc2xml.ren"
 #mc2xml_file_xmltv: "xmltv.xml"
 #mc2xml_include_xmltv: "<filename>"
