@@ -42,11 +42,11 @@
 
 
 - name: "Config | ensure configured daily cron job"
-  cron: >
-    name=mc2xml 
-    job=cd {{ mc2xml_path_output }} && mc2xml {{ mc2xml_args_cron }}
-    state=present
-    special_time=daily
+  cron:
+    name: mc2xml 
+    job: cd {{ mc2xml_path_output }} && mc2xml {{ mc2xml_args_cron }}
+    state: present
+    special_time: daily
   register: " Handle | init lineup"
 
 
