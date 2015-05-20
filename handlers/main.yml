@@ -1,2 +1,9 @@
 ---
 # handlers file for ansible-role-mc2xml
+
+- name: " Handle | init lineup"
+  shell: "echo {{ mc2xml_lineup_num }} | mc2xml {{ mc2xml_args_init }}"
+  args: 
+    chdir: "{{ mc2xml_path_output }}"
+
+...

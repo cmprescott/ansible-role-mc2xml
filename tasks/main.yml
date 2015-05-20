@@ -41,17 +41,13 @@
   when: mc2xml_chls is defined
 
 
-- name: "Config | ensure configured lineup"
-  shell: "echo {{ mc2xml_lineup_num }} | mc2xml {{ mc2xml_args_init }}"
-  args: chdir={{ mc2xml_path_output }} creates={{ mc2xml_path_output }}/{{ mc2xml_file_dat }}
-
-
 - name: "Config | ensure configured daily cron job"
   cron: >
     name=mc2xml 
     job=cd {{ mc2xml_path_output }} && mc2xml {{ mc2xml_args_cron }}
     state=present
     special_time=daily
+  register: " Handle | init lineup"
 
 
 ...
